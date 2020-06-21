@@ -117,93 +117,74 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"style.js":[function(require,module,exports) {
-"use strict";
+})({"../../../../AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
+var bundleURL = null;
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var cssString = "\n  #main {\n    position: absolute;\n    background: #392939;\n    width: 250px;\n    height: 250px;\n    border-radius: 50%;\n    left: 50%;\n    transform: translateX(-50%) translateY(-50%) scale(0.7);\n    top: 50%;\n    z-index: 1;\n    animation: wave 2s infinite;\n  }\n\n  #backgroundDiv{\n    position: absolute;\n    background: #8b6283;\n    height: 350px;\n    width: 350px;\n    border-radius: 50%;\n    left: 50%;\n    transform: translateX(-50%) translateY(-50%) scale(0.7);\n    top: 50%;\n    filter: blur(50px);\n    animation: light 10s infinite alternate-reverse;\n  }\n\n\n  @media (min-width: 500px) {\n    #main {\n      transform: translateX(-50%) translateY(-50%) scale(1);\n      top: 50%;\n    }\n\n    #backgroundDiv {\n      transform: translateX(-50%) translateY(-50%) scale(1);\n    }\n  }\n  \n  #eyes {\n    position: absolute;\n    z-index: 5;\n    left: 50%;\n  }\n  \n  .eyePit {\n    border-bottom: 3px solid black;\n    width: 160px;\n    height: 102px;\n    border-radius: 50px/8px;\n    position: absolute;\n    left: 50%;\n    top: 50px;\n    transform: translateX(-112%) translateY(20%) rotate(-148deg);\n    overflow: hidden;\n  }\n  \n  .eyePit::before {\n    content: \"\";\n    position: absolute;\n    width: 159px;\n    height: 110px;\n    background: white;\n    top: 45px;\n    border: 1px solid black;\n    transform: rotate(46deg);\n    border-radius: 50%;\n  }\n  \n  .leftEyePit::before {\n    box-shadow: inset -24px 16px 2px 5px rgba(0, 0, 0, 0.1);\n  }\n  \n  .rightEyePit::before {\n    box-shadow: inset 3px -11px 2px 1px rgba(0, 0, 0, 0.1);\n  }\n  \n  #mirror {\n    transform: rotateY(180deg);\n  }\n  \n  .eyeBall {\n    position: absolute;\n    width: 3px;\n    height: 10px;\n    background: black;\n    border-radius: 50%;\n    top: 120px;\n  }\n  \n  .leftEyeBall {\n    right: 40px;\n  }\n  \n  .rightEyeBall {\n    left: 40px;\n  }\n  \n  #mouthUp {\n    background: #de5239;\n    width: 165px;\n    height: 100px;\n    position: absolute;\n    left: 50%;\n    transform: translateX(-50%);\n    top: 120px;\n    border-radius: 50%;\n    z-index: 2;\n  }\n  \n  #mouthDown {\n    background: #392939;\n    width: 205px;\n    height: 100px;\n    top: 100px;\n    position: absolute;\n    left: 50%;\n    transform: translateX(-50%);\n    border-radius: 50%;\n    z-index: 4;\n    \n  }\n  \n  .tooth {\n    background: white;\n    width: 40px;\n    height: 40px;\n    position: absolute;\n    border: 1px solid black;\n    top: 152px;\n    z-index: 3;\n  }\n  \n  .tooth1st {\n    transform: rotate(60deg) skew(30deg);\n    left: 50px;\n  }\n  \n  .tooth2nd {\n    transform: rotate(240deg) skew(30deg);\n    right: 50px;\n  }\n  \n  @keyframes wave {\n    0% {\n        transform: translateX(-50%) translateY(-50%) scale(0.7);\n    }\n    50% {\n        transform: translateX(-50%) translateY(-52%) scale(0.71);\n    }\n    100% {\n        transform: translateX(-50%) translateY(-50%) scale(0.7);\n    }\n  }\n  \n @keyframes light {\n   0% {\n    filter: blur(50px);\n    width:350px;\n    height:350px;\n   }\n   50%{\n    filter: blur(30px);\n    width:300px;\n    height:300px;\n   }\n   100% {\n    filter: blur(50px);\n    width:350px;\n    height:350px;\n   }\n }\n\n  @media (min-width: 500px) {\n    @keyframes wave {\n      0% {\n        transform: translateX(-50%) translateY(-50%) scale(1);\n      }\n      50% {\n        transform: translateX(-50%) translateY(-52%) scale(1.05);\n      }\n      100% {\n        transform: translateX(-50%) translateY(-50%) scale(1);\n      }\n    }\n  }\n  ";
-var _default = cssString;
-exports.default = _default;
-},{}],"main.js":[function(require,module,exports) {
-"use strict";
+function getBundleURLCached() {
+  if (!bundleURL) {
+    bundleURL = getBundleURL();
+  }
 
-var _style = _interopRequireDefault(require("./style.js"));
+  return bundleURL;
+}
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function getBundleURL() {
+  // Attempt to find the URL of the current script and use that as the base URL
+  try {
+    throw new Error();
+  } catch (err) {
+    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
 
-var $text = $("#text");
-var $style = $("<style>"); //实际使用的css,用于插入到head中
+    if (matches) {
+      return getBaseURL(matches[0]);
+    }
+  }
 
-var i = 0; //与cssString比较，用于substring(0, i)
+  return '/';
+}
 
-var t; //用于命名setTimeout 以便进行clearTimeout
+function getBaseURL(url) {
+  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
+}
 
-var k = false; //用于判断是否在播放，若在播放，再点击则播放无效 默认false 播放时为true
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+},{}],"../../../../AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/css-loader.js":[function(require,module,exports) {
+var bundle = require('./bundle-url');
 
-var time = 50;
-var player = {
-  init: function init() {
-    $("head").append($style);
-    player.run();
-    player.blindEvents();
-  },
-  hash: {
-    ".stop": "pause",
-    ".continue": "continue",
-    ".slow": "slow",
-    ".normal": "normal",
-    ".fast": "fast"
-  },
-  blindEvents: function blindEvents() {
-    for (var key in player["hash"]) {
-      if (player.hash.hasOwnProperty(key)) {
-        var value = player.hash[key];
-        $("".concat(key)).on("click", player[value]);
+function updateLink(link) {
+  var newLink = link.cloneNode();
+
+  newLink.onload = function () {
+    link.remove();
+  };
+
+  newLink.href = link.href.split('?')[0] + '?' + Date.now();
+  link.parentNode.insertBefore(newLink, link.nextSibling);
+}
+
+var cssTimeout = null;
+
+function reloadCSS() {
+  if (cssTimeout) {
+    return;
+  }
+
+  cssTimeout = setTimeout(function () {
+    var links = document.querySelectorAll('link[rel="stylesheet"]');
+
+    for (var i = 0; i < links.length; i++) {
+      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
+        updateLink(links[i]);
       }
     }
-  },
-  run: function run() {
-    $text[0].innerText = _style.default.substring(0, i);
-    $style[0].innerHTML = _style.default.substring(0, i);
-    i++; //往textDiv和head中写css
 
-    k = true;
-    $("#textDiv")[0].scrollTop = $("#textDiv")[0].scrollHeight; //往下滚动
+    cssTimeout = null;
+  }, 50);
+}
 
-    i < _style.default.length ? t = setTimeout(player.run, time) : //cssString没读完就继续读
-    $text[0].innerHTML = _style.default; //cssString读完了就一直显示cssString，防止点击播放出现undefined
-  },
-  //使用setTimeout模拟setInterval 播放动画
-  pause: function pause() {
-    clearTimeout(t);
-    k = false;
-  },
-  continue: function _continue() {
-    k ? undefined : player.run(); //未播放完成 继续播放
-
-    k === true && i >= _style.default.length ? location.reload() : undefined; //播放完成 刷新页面
-  },
-  slow: function slow() {
-    player.pause();
-    time = 100;
-    player.run();
-  },
-  normal: function normal() {
-    player.pause();
-    time = 50;
-    player.run();
-  },
-  fast: function fast() {
-    player.pause();
-    time = 0;
-    player.run();
-  }
-};
-player.init();
-},{"./style.js":"style.js"}],"../../../../AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+module.exports = reloadCSS;
+},{"./bundle-url":"../../../../AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/bundle-url.js"}],"../../../../AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -407,5 +388,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../../AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/hmr-runtime.js","main.js"], null)
-//# sourceMappingURL=/main.1f19ae8e.js.map
+},{}]},{},["../../../../AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/hmr-runtime.js"], null)
+//# sourceMappingURL=/index.js.map

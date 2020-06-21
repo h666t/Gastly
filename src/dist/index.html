@@ -3,10 +3,97 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
-    <link rel="stylesheet" href="/style.e308ff8e.css">
     <title>pokemon</title>
-  <script src="/style.e308ff8e.js"></script></head>
+  </head>
   <body>
+    <style>* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      *::before {
+        box-sizing: border-box;
+      }
+
+      *::after {
+        box-sizing: border-box;
+      }
+
+      body {
+        background: black;
+        color: white;
+      }
+
+      ::-webkit-scrollbar {
+        display: none;
+      }
+
+      #text {
+        position: absolute;
+        left: 5%;
+        top: 0;
+      }
+
+      #btnS {
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        right: 20px;
+        top: 20px;
+        z-index: 1;
+      }
+
+      @media (min-width: 500px) {
+        #btnS {
+          right: auto;
+          right: 25%;
+        }
+
+        #text {
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+
+      .btn {
+        margin-bottom: 10px;
+        padding: 5px;
+        background: white;
+        border: none;
+        border-radius: 5px;
+        color: black;
+        font-size: small;
+        cursor: pointer;
+      }
+
+      #wrapper {
+        position: fixed;
+        bottom: 0;
+        min-height: 50%;
+        min-width: 100%;
+        overflow: hidden;
+      }
+
+      #textDiv {
+        position: fixed;
+        min-height: 50%;
+        min-width: 100%;
+        overflow: scroll;
+        white-space: pre-wrap;
+      }</style>
+    <div id="btnS">
+      <span class="continue btn">播放</span>
+      <span class="stop btn">暂停</span>
+      <span class="slow btn">慢速</span>
+      <span class="normal btn">中速</span>
+      <span class="fast btn">快速</span>
+    </div>
+
+    <div id="textDiv">
+      <div id="text"></div>
+    </div>
     <div id="wrapper">
       <div id="main">
         <div id="eyes">
@@ -24,17 +111,9 @@
         <div class="tooth1st tooth"></div>
         <div class="tooth2nd tooth"></div>
       </div>
-      <svg class="SVG svgContainer">
-        <defs>
-          <filter id="smoke">
-            <feTurbulence id="turbulence" baseFrequency="0.025" numOctaves="1" type="fractalNoise" result="feturbulence"></feTurbulence>
-            <feDisplacementMap in="SourceGraphic" in2="feturbulence" scale="300" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
-          </filter>
-        </defs>
-      </svg>
-      <div class="svgDiv svgContainer"></div>
+      <div id="backgroundDiv"></div>
     </div>
-
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.3/gsap.min.js"></script>
     <script src="/main.1f19ae8e.js"></script>
   </body>

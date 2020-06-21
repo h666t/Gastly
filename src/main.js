@@ -57,6 +57,9 @@ const player = {
 
   continue: () => {
     k ? undefined : player.run();
+    //未播放完成 继续播放
+    k === true && i >= cssString.length ? location.reload() : undefined;
+    //播放完成 刷新页面
   },
 
   slow: () => {

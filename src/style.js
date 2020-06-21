@@ -15,8 +15,8 @@ const cssString = `
   #backgroundDiv{
     position: absolute;
     background: #8b6283;
-    height: 400px;
-    width: 400px;
+    height: 350px;
+    width: 350px;
     border-radius: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%) scale(0.7);
@@ -156,8 +156,8 @@ const cssString = `
  @keyframes light {
    0% {
     filter: blur(50px);
-    width:400px;
-    height:400px;
+    width:350px;
+    height:350px;
    }
    50%{
     filter: blur(30px);
@@ -166,8 +166,8 @@ const cssString = `
    }
    100% {
     filter: blur(50px);
-    width:400px;
-    height:400px;
+    width:350px;
+    height:350px;
    }
  }
 
