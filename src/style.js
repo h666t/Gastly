@@ -11,8 +11,8 @@ const cssString = `
     z-index: 1;
     animation: move 2s infinite;
   }
-  
-  .svgContainer {
+
+  #backgroundDiv{
     position: absolute;
     background: #8b6283;
     height: 400px;
@@ -21,15 +21,11 @@ const cssString = `
     left: 50%;
     transform: translateX(-50%) translateY(-50%) scale(0.7);
     top: 50%;
-  }
-  
-  .svgDiv {
     filter: blur(50px);
+    animation: light 12s infinite alternate-reverse;
+    animation: move 2s infinite;
   }
 
-  .SVG {
-    filter: url(#smoke);
-  }
 
   @media (min-width: 500px) {
     #main {
@@ -37,9 +33,8 @@ const cssString = `
       top: 50%;
     }
 
-    .svgContainer {
+    #backgroundDiv {
       transform: translateX(-50%) translateY(-50%) scale(1);
-      top: 50%;
     }
   }
   
@@ -159,6 +154,24 @@ const cssString = `
     }
   }
   
+ @keyframes light {
+   0% {
+    filter: blur(50px);
+    width:400px;
+    height:400px;
+   }
+   50%{
+    filter: blur(30px);
+    width:300px;
+    height:300px;
+   }
+   100% {
+    filter: blur(50px);
+    width:400px;
+    height:400px;
+   }
+ }
+
   @media (min-width: 500px) {
     @keyframes move {
       0% {

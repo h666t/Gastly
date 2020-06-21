@@ -13,14 +13,6 @@ let time = 50;
 const player = {
   init: () => {
     $("head").append($style);
-    gsap.to("#turbulence", {
-      duration: 12,
-      repeat: -1,
-      ease: "linear",
-      attr: {
-        baseFrequency: 0.01,
-      },
-    });
     player.run();
     player.blindEvents();
   },
