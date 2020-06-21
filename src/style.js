@@ -115,7 +115,6 @@ const cssString = `
   }
   
   #mouthDown {
-    content: "";
     background: #392939;
     width: 205px;
     height: 100px;
