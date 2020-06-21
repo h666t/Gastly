@@ -95,11 +95,11 @@ const cssString = `
   }
   
   .leftEyeBall {
-    left: 40px;
+    right: 40px;
   }
   
   .rightEyeBall {
-    right: 40px;
+    left: 40px;
   }
   
   #mouthUp {
