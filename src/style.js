@@ -50,9 +50,9 @@ const cssString = `
   }
   
   .eyePit {
+    border-bottom: 3px solid black;
     width: 160px;
     height: 102px;
-    border-bottom: 3px solid black;
     border-radius: 50px/8px;
     position: absolute;
     left: 50%;
@@ -64,10 +64,10 @@ const cssString = `
   .eyePit::before {
     content: "";
     position: absolute;
-    background: white;
-    top: 45px;
     width: 159px;
     height: 110px;
+    background: white;
+    top: 45px;
     border: 1px solid black;
     transform: rotate(46deg);
     border-radius: 50%;
@@ -87,9 +87,9 @@ const cssString = `
   
   .eyeBall {
     position: absolute;
-    background: black;
     width: 3px;
     height: 10px;
+    background: black;
     border-radius: 50%;
     top: 120px;
   }
@@ -117,9 +117,9 @@ const cssString = `
   #mouthDown {
     content: "";
     background: #392939;
-    top: 100px;
     width: 205px;
     height: 100px;
+    top: 100px;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -130,10 +130,10 @@ const cssString = `
   
   .tooth {
     background: white;
-    position: absolute;
-    border: 1px solid black;
     width: 40px;
     height: 40px;
+    position: absolute;
+    border: 1px solid black;
     top: 152px;
     z-index: 3;
   }
