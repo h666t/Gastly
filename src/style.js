@@ -9,7 +9,7 @@ const cssString = `
     transform: translateX(-50%) translateY(-50%) scale(0.7);
     top: 50%;
     z-index: 1;
-    animation: move 2s infinite;
+    animation: wave 2s infinite;
   }
 
   #backgroundDiv{
@@ -22,8 +22,7 @@ const cssString = `
     transform: translateX(-50%) translateY(-50%) scale(0.7);
     top: 50%;
     filter: blur(50px);
-    animation: light 12s infinite alternate-reverse;
-    animation: move 2s infinite;
+    animation: light 10s infinite alternate-reverse;
   }
 
 
@@ -142,7 +141,7 @@ const cssString = `
     right: 50px;
   }
   
-  @keyframes move {
+  @keyframes wave {
     0% {
         transform: translateX(-50%) translateY(-50%) scale(0.7);
     }
@@ -173,7 +172,7 @@ const cssString = `
  }
 
   @media (min-width: 500px) {
-    @keyframes move {
+    @keyframes wave {
       0% {
         transform: translateX(-50%) translateY(-50%) scale(1);
       }
