@@ -5,5 +5,5 @@ git init &&
 git add . &&
 git commit -m "deploy" &&
 git remote add origin git@gitee.com:huang-haotian/gastly.git &&
-git push -u origin master -f
+git push -u -f origin master
 cd -
