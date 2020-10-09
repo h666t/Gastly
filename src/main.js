@@ -56,7 +56,8 @@ const player = {
   },
 
   continue: () => {
-    k ? undefined : player.run();
+    if (k) {
+    } else player.run();
     //未播放完成 继续播放
     k === true && i >= cssString.length ? location.reload() : undefined;
     //播放完成 刷新页面
@@ -81,3 +82,4 @@ const player = {
   },
 };
 player.init();
+
